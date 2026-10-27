@@ -9,7 +9,9 @@ gets its Drive and Calendar connectors.
 > [!IMPORTANT]
 > **Everyone shares one app**, so the connectors are added **once**. Your facilitator
 > does steps 2.2 and 2.3 live on screen (or asks one volunteer to). Everyone follows
-> along, then **everyone** completes 2.4 to authorise their *own* Drive and Calendar.
+> along — **do not** click *Create* yourselves, or the app ends up with duplicate
+> connectors — then **everyone** completes 2.4 to authorise their *own* Drive and
+> Calendar.
 
 ## 2.1 Verify the pre-provisioned app (everyone)
 

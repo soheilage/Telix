@@ -11,26 +11,33 @@ review of a few sales reports and feedback trends before drafting a proposal.
 2. On **Welcome to Gemini Notebook** click **+ Create new notebook**. A new notebook opens
    with the **Add sources** dialog.
 
-3. Under **Link** click **Website**.
-4. In **Paste URLs** paste these three text files (public copies of the files in the
-   `notebooklm-drive/` folder):
+3. Click **Google Drive**. In the picker open **Shared with me → Gemini Enterprise Drive
+   Assets** and select the three text files:
 
-   ```text
-   https://storage.googleapis.com/spls/gemini-enterprise/SALES_data.txt
-   https://storage.googleapis.com/spls/gemini-enterprise/customer_feedback.txt
-   https://storage.googleapis.com/spls/gemini-enterprise/MARKETING_data.txt
-   ```
+   - `SALES_data.txt`
+   - `customer_feedback.txt`
+   - `MARKETING_data.txt`
 
-5. Click **Insert**. After a few seconds the three sources appear, and the notebook gets an
+4. Click **Insert**. After a few seconds the three sources appear, and the notebook gets an
    automatic title (e.g. *Sweet Treats: Campaigns, Sales, Feedback*) and summary.
 
 <details>
-<summary>Alternative: upload the files yourself</summary>
+<summary>Alternatives if the Drive picker is unavailable</summary>
 
-Download the three `.txt` files from this repo's
-[`data/`](../data) folder (or from `<BUCKET_NAME>/notebooklm-drive/`) and drag them into
-**Upload sources**. Gemini Notebook also accepts PDF, Markdown, Word, PowerPoint, Excel,
-audio, images, Google Docs/Slides and pasted text.
+- **Upload**: download the three `.txt` files from this repo's [`data/`](../data) folder
+  (or from `<BUCKET_NAME>/notebooklm-drive/` in the Cloud console) and drag them into
+  **Upload sources**.
+- **Website link**: under **Link → Website** paste the public copies used by the original
+  Skills Boost lab (may not be reachable from every network):
+
+  ```text
+  https://storage.googleapis.com/spls/gemini-enterprise/SALES_data.txt
+  https://storage.googleapis.com/spls/gemini-enterprise/customer_feedback.txt
+  https://storage.googleapis.com/spls/gemini-enterprise/MARKETING_data.txt
+  ```
+
+Gemini Notebook also accepts PDF, Markdown, Word, PowerPoint, Excel, audio, images,
+Google Docs/Slides and pasted text.
 </details>
 
 ## 5.2 Query the sources

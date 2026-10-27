@@ -18,7 +18,7 @@ Google Calendar — so you know what to expect when you query it later.
    | Folder | Contents | Used by |
    |--------|----------|---------|
    | `gemini-enterprise-drive/` | `MARKETING_data.csv`, `SALES_data.csv`, `customer_feedback.csv`, `pie_chart_customer_sentiment-png.png` | Copies of the files in your Drive folder; used by the app and custom agents |
-   | `notebooklm-drive/` | `.txt` versions of the key data files | Gemini Notebook (Module 5) |
+   | `notebooklm-drive/` | `.txt` versions of the key data files | Reference copies of the Notebook sources (Module 5 uses the Drive copies) |
    | `gemini-enterprise-cloud-storage/` | Enterprise operations text files | Already connected and indexed via the **Cloud Storage** data store |
 
 3. Click `gemini-enterprise-drive/MARKETING_data.csv` → **Download** (or **Preview**) and
@@ -30,12 +30,12 @@ Google Calendar — so you know what to expect when you query it later.
 1. Open [Google Drive](https://drive.google.com) in a new tab (same account).
 2. Go to **Shared with me** and open **Gemini Enterprise Drive Assets**.
    Tip: right-click → **Add shortcut to Drive** so it also appears under *My Drive*.
-3. Verify it contains these four files:
+3. Verify it contains these seven files:
 
-   - `MARKETING_data.csv`
-   - `SALES_data.csv`
-   - `customer_feedback.csv`
-   - `pie_chart_customer_sentiment-png.png`
+   - `MARKETING_data.csv`, `SALES_data.csv`, `customer_feedback.csv`,
+     `pie_chart_customer_sentiment-png.png` — used by the app and your custom agent
+   - `MARKETING_data.txt`, `SALES_data.txt`, `customer_feedback.txt` — the same data as
+     plain text, used as Gemini Notebook sources in Module 5
 
    > [!NOTE]
    > In a real deployment each employee's own Drive content is searchable, subject to
@@ -65,7 +65,7 @@ from now, click **Save**.
 ## ✅ Checkpoint
 
 - [ ] You can open `<BUCKET_NAME>` and see the three folders.
-- [ ] **Gemini Enterprise Drive Assets** shows four files.
+- [ ] **Gemini Enterprise Drive Assets** shows seven files.
 - [ ] *Cymbal Foods - Marketing Strategy Meeting* appears in your calendar today.
 
 **Next:** [Module 2 — Connect Google Workspace](02-connect-workspace.md)

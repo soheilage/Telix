@@ -57,10 +57,12 @@ variable "participants" {
 
 variable "participant_role" {
   description = <<-EOT
-    Role granted to participants. `roles/discoveryengine.editor` is needed so they can
-    add the Google Drive / Calendar data stores themselves (Task 2) and create agents
-    and skills. Use `roles/discoveryengine.user` if the facilitator pre-connects
-    Drive/Calendar and participants should only consume the app.
+    Project role granted to participants.
+    - `roles/discoveryengine.editor` (default): participants can use the web app AND
+      see/modify the app in the Cloud console (Module 2.1 verification, or adding the
+      Drive/Calendar data stores themselves if you delegate that to a volunteer).
+    - `roles/discoveryengine.user`: web-app access only; the facilitator adds the
+      connectors and participants skip the console parts of Modules 1-2.
   EOT
   type        = string
   default     = "roles/discoveryengine.editor"

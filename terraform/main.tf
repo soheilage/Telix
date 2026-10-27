@@ -125,9 +125,11 @@ resource "google_discovery_engine_data_store" "cloud_storage" {
 # Import the enterprise-operations text files. The provider has no import
 # resource yet, so call the Discovery Engine API once.
 resource "terraform_data" "import_documents" {
+  # Re-run the import when the data store is recreated or any file in the
+  # imported folder changes (name or content).
   triggers_replace = [
     google_discovery_engine_data_store.cloud_storage.name,
-    join(",", sort([for k, _ in local.objects : k if startswith(k, "gemini-enterprise-cloud-storage/")])),
+    join(",", sort([for k, o in google_storage_bucket_object.files : "${k}=${o.md5hash}" if startswith(k, "gemini-enterprise-cloud-storage/")])),
   ]
 
   provisioner "local-exec" {

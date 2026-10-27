@@ -96,13 +96,16 @@ the same multi-region. Be aware of:
 ## 3. Stage Google Workspace content (approach A — one shared Drive folder)
 
 1. With your workshop account, create a Drive folder named **Gemini Enterprise Drive Assets**.
-2. Upload the four files from `data/`: `MARKETING_data.csv`, `SALES_data.csv`,
-   `customer_feedback.csv`, `pie_chart_customer_sentiment-png.png`.
+2. Upload the **seven** files from `data/`:
+   - for the app and custom agents: `MARKETING_data.csv`, `SALES_data.csv`,
+     `customer_feedback.csv`, `pie_chart_customer_sentiment-png.png`
+   - for Gemini Notebook (Module 5, added via the Drive picker): `MARKETING_data.txt`,
+     `SALES_data.txt`, `customer_feedback.txt`
 3. Share the folder with the participant group as **Viewer**.
 4. Generate the one-click Calendar link (participants create their own event in Module 1):
 
    ```bash
-   ./scripts/calendar-link.sh                       # next full hour + 1h
+   ./scripts/calendar-link.sh                       # next full hour + 2h (UTC), 30 min
    ./scripts/calendar-link.sh 20261105T100000Z 20261105T103000Z   # or explicit UTC times
    ```
 
@@ -112,6 +115,12 @@ Module 2 is written so that **you** add the Drive and Calendar data stores live
 (10 minutes of demo), and every participant then authorises their own account in the
 app. If you'd rather save the time, add both connectors the day before and tell
 participants to skip to section 2.4.
+
+Participants get `participant_role` (default `roles/discoveryengine.editor`) so they can
+follow along in the console and a volunteer *could* add the connectors. If you want
+participants to be strictly read-only in the console, set
+`participant_role = "roles/discoveryengine.user"` — then they skip 2.1 and you must
+pre-connect Drive/Calendar yourself.
 
 ## 5. Fill in the placeholders
 

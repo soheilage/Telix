@@ -77,7 +77,7 @@ Concepts in one line each:
 5. Select the **Flow** tab and click the **Sales Assistant** node to open **Details**.
    Inspect (and feel free to tweak) **Name** (add your initials), **Description**,
    **Instructions** (the generated *Role* section tells it to use Google Drive / Cloud
-   Storage), **Model** (e.g. Gemini 3.5 Flash) and **Connectors** (Cloud Storage, Drive,
+   Storage), **Model** (leave the default Gemini model) and **Connectors** (Cloud Storage, Drive,
    Google Search).
 
 6. Click **Create** in the toolbar to publish. In **Agent Created Successfully** click
