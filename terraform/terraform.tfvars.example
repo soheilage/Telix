@@ -1,0 +1,12 @@
+# Copy to terraform.tfvars and edit.
+project_id = "telix-ge-workshop"
+
+# Google Group (preferred) or individual users who will attend.
+participants = [
+  "group:ge-workshop@telix.com",
+]
+
+# Optional overrides
+# bucket_name      = "telix-ge-workshop-data"
+# participant_role = "roles/discoveryengine.user"   # if facilitator pre-connects Drive/Calendar
+# run_preflight    = false                           # after the one-time check has passed
