@@ -26,8 +26,6 @@ overview — in minutes. Kick it off now and come back after Module 5.
    sustainability, personalisation, authentic UGC, direct-to-consumer), a phased
    recommendation, inline citations, and a **Research audio summary** player.
 
-   ![Deep Research report](../assets/deep-research.png)
-
 ## Things to try when it's done
 
 - Expand a citation chip to see the source.

@@ -8,7 +8,7 @@ the application and confirm you can see it.
 | Item | Value |
 |------|-------|
 | GCP project | `<PROJECT_ID>` |
-| Gemini Enterprise app | **Cymbal Foods - Gemini Enterprise** (`cymbal-foods-gemini-enterprise`, location `global`) |
+| Gemini Enterprise app | **Cymbal Foods - Gemini Enterprise** (`cymbal-foods-gemini-enterprise`, location `<LOCATION>`) |
 | Pre-connected data store | **Cloud Storage** (`cloud-storage-ds`) — enterprise operations text files, already indexed |
 | Cloud Storage bucket | `<BUCKET_NAME>` with three folders of sample data |
 | Shared Drive folder | **Gemini Enterprise Drive Assets** (shared with you) |
@@ -33,11 +33,14 @@ the application and confirm you can see it.
    navigation menu with **New chat**, **Search**, **Library**, **Agents**,
    **Gemini Notebook**, **Deep Research**, and **+ New agent**.
 
-   ![Gemini Enterprise home page](../assets/ge-home.png)
-
 4. (Optional) Open the Google Cloud console view of the same app to see how an admin
    sees it: **<APP_CONSOLE_URL>** → the **Overview** tab shows
    *Your Gemini Enterprise webapp is ready* with the link you just used.
+
+   > [!NOTE]
+   > The Gemini Enterprise console defaults to location **global**. This workshop's app
+   > lives in **`<LOCATION>`** — if you see *There are no apps yet*, click **Edit** next
+   > to *Current location* and pick `<LOCATION>`.
 
 ## ✅ Checkpoint
 

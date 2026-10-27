@@ -43,6 +43,10 @@ resource "terraform_data" "preflight" {
 # -----------------------------------------------------------------------------
 resource "google_project_service" "apis" {
   for_each = toset([
+    "cloudresourcemanager.googleapis.com", # needed by the google provider itself
+    "serviceusage.googleapis.com",
+    "iam.googleapis.com",
+    "cloudidentity.googleapis.com", # participant Google Group (gcloud identity groups)
     "discoveryengine.googleapis.com",
     "storage.googleapis.com",
     "drive.googleapis.com",
@@ -107,6 +111,14 @@ resource "google_discovery_engine_data_store" "cloud_storage" {
   solution_types              = ["SOLUTION_TYPE_SEARCH"]
   create_advanced_site_search = false
 
+  # The API always materialises a default parsing config; declare it so the
+  # provider does not plan a destroy/recreate on the next apply.
+  document_processing_config {
+    default_parsing_config {
+      digital_parsing_config {}
+    }
+  }
+
   depends_on = [google_project_service.apis]
 }
 
@@ -159,6 +171,7 @@ resource "google_discovery_engine_search_engine" "app" {
 
   # Agentic features used in Tasks 3-5 (custom agents, sharing).
   features = {
+    "workflow-agents"                      = "FEATURE_STATE_ON"
     "agent-sharing-without-admin-approval" = "FEATURE_STATE_ON"
     "disable-agent-sharing"                = "FEATURE_STATE_OFF"
     "enable-end-user-sharing-with-groups"  = "FEATURE_STATE_ON"

@@ -11,8 +11,6 @@ review of a few sales reports and feedback trends before drafting a proposal.
 2. On **Welcome to Gemini Notebook** click **+ Create new notebook**. A new notebook opens
    with the **Add sources** dialog.
 
-   ![Add sources dialog](../assets/notebook-add-sources.png)
-
 3. Under **Link** click **Website**.
 4. In **Paste URLs** paste these three text files (public copies of the files in the
    `notebooklm-drive/` folder):
@@ -25,8 +23,6 @@ review of a few sales reports and feedback trends before drafting a proposal.
 
 5. Click **Insert**. After a few seconds the three sources appear, and the notebook gets an
    automatic title (e.g. *Sweet Treats: Campaigns, Sales, Feedback*) and summary.
-
-   ![Notebook overview](../assets/notebook-overview.png)
 
 <details>
 <summary>Alternative: upload the files yourself</summary>
@@ -70,8 +66,6 @@ Infographic.
 
 1. In **Studio** click **Audio Overview**, then **Infographic**, then **Slide Deck**.
    They generate in the background (a few minutes each).
-
-   ![Studio panel](../assets/notebook-studio.png)
 
 2. Open each generated artefact. How faithfully do they capture the main themes of the
    Cymbal Foods documents?

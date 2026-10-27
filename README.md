@@ -58,9 +58,8 @@ flowchart LR
 docs/            Step-by-step participant modules (start here)
 FACILITATOR.md   Run-of-show, prerequisites, provisioning, teardown
 terraform/       Provisions bucket, sample data, data store, app, IAM (facilitator)
-scripts/         preflight.sh (one-time access check), import helper, calendar link generator
+scripts/         preflight.sh (access check), fill-placeholders.sh, import helper, calendar link generator
 data/            Cymbal Foods sample files (CSV / TXT / PNG)
-assets/          Screenshots used in the docs
 ```
 
 Based on the Google Cloud Skills Boost lab *GSP1320 – Introduction to Gemini Enterprise*,

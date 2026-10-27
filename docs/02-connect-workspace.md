@@ -15,7 +15,7 @@ gets its Drive and Calendar connectors.
 
 1. Open **<DATA_STORES_CONSOLE_URL>** (Cloud console → search bar → **Gemini Enterprise**
    → **Apps** → **Cymbal Foods - Gemini Enterprise** → **Connected data stores**).
-2. Verify the app is listed in location **global** and that the **Cloud Storage** data
+2. Verify the app is listed in location **`<LOCATION>`** (switch the console's location selector if it shows *global* and no apps) and that the **Cloud Storage** data
    store (`cloud-storage-ds`) is already connected, importing unstructured documents from
    the `gemini-enterprise-cloud-storage/` folder of `<BUCKET_NAME>`.
 
@@ -36,7 +36,7 @@ gets its Drive and Calendar connectors.
 
    | Setting | Value |
    |---------|-------|
-   | Multi-region (Location of your data connector) | **global** (pre-selected to match the app) |
+   | Multi-region (Location of your data connector) | **`<LOCATION>`** (must match the app) |
    | Data connector name | `Google Drive` |
 
 6. Click **Create**.
@@ -47,7 +47,7 @@ gets its Drive and Calendar connectors.
 2. Search `Google Calendar` → **Add data source**.
 3. Authentication parameters page → **Continue**.
 4. **Select all actions** → **Continue**.
-5. Multi-region **global**, data connector name `Google Calendar` → **Create**.
+5. Multi-region **`<LOCATION>`**, data connector name `Google Calendar` → **Create**.
 6. Confirm the panel now lists three data stores:
 
    | Name | Type | Status |
@@ -55,8 +55,6 @@ gets its Drive and Calendar connectors.
    | Cloud Storage | Unstructured data | – |
    | Google Calendar | Calendar | Active |
    | Google Drive | Drive | Active |
-
-   ![Connected data stores](../assets/connected-data-stores.png)
 
 Behind the scenes Gemini Enterprise links all three stores to the
 `cymbal-foods-gemini-enterprise` engine and enforces **per-user ACLs** through Google

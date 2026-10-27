@@ -35,22 +35,27 @@ fi
 green "✓ Project is visible"
 
 # 3. IAM permissions needed by terraform apply -----------------------------------
+# Only project-level permissions can be tested here; bucket-level ones
+# (storage.objects.*, storage.buckets.*IamPolicy) are implied by storage.buckets.create
+# for the bucket creator in practice.
 REQUIRED_PERMS=(
   serviceusage.services.enable
   serviceusage.services.list
   storage.buckets.create
-  storage.buckets.getIamPolicy
-  storage.buckets.setIamPolicy
-  storage.objects.create
   discoveryengine.dataStores.create
   discoveryengine.engines.create
   discoveryengine.documents.import
   resourcemanager.projects.getIamPolicy
   resourcemanager.projects.setIamPolicy
 )
-GRANTED=$(gcloud projects test-iam-permissions "${PROJECT_ID}" \
-  --permissions="$(IFS=,; echo "${REQUIRED_PERMS[*]}")" \
-  --format='value(permissions)' | tr ';' '\n')
+TOKEN=$(gcloud auth application-default print-access-token 2>/dev/null || gcloud auth print-access-token 2>/dev/null)
+PERMS_JSON=$(printf '"%s",' "${REQUIRED_PERMS[@]}"); PERMS_JSON="[${PERMS_JSON%,}]"
+GRANTED=$(curl -sS -X POST \
+  -H "Authorization: Bearer ${TOKEN}" \
+  -H "Content-Type: application/json" \
+  "https://cloudresourcemanager.googleapis.com/v1/projects/${PROJECT_ID}:testIamPermissions" \
+  -d "{\"permissions\": ${PERMS_JSON}}" \
+  | tr -d ' "\n' | sed -n 's/.*permissions:\[\(.*\)\].*/\1/p' | tr ',' '\n')
 
 missing=()
 for p in "${REQUIRED_PERMS[@]}"; do

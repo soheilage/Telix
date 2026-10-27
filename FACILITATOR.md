@@ -8,14 +8,36 @@ before).
 
 | Who | What | When |
 |-----|------|------|
-| **Customer admin** (Telix) | Create the shared GCP project with billing; enable Gemini Enterprise subscription and assign licences to participants' Workspace users; set **Gemini Enterprise → Settings → Identity = Google Identity**; create a Google Group for participants (e.g. `ge-workshop@telix.com`); grant **you** `roles/editor` + `roles/discoveryengine.admin` + `roles/resourcemanager.projectIamAdmin` on the project; make sure Workspace allows the Drive and Calendar connectors | ≥ 1 week before |
-| **Facilitator** (you) | Run preflight once, `terraform apply`, share the Drive folder, fill the doc placeholders, dry-run | 1 day before |
+| **Customer admin** (Telix) | Create the shared GCP project with billing; enable Gemini Enterprise subscription and assign licences to participants' Workspace users; set **Gemini Enterprise → Settings → Identity = Google Identity**; grant **you** `roles/editor` + `roles/discoveryengine.admin` + `roles/resourcemanager.projectIamAdmin` on the project; make sure Workspace allows the Drive and Calendar connectors | ≥ 1 week before |
+| **Facilitator** (you) | Create the participant group (§1b), `terraform apply`, share the Drive folder, fill the doc placeholders, dry-run | 1 day before |
 | **Participants** | Modules 0–6 with a browser | Workshop day |
+
+## 1b. Create the participant group
+
+Access is granted to one Google Group. Create it with Cloud Identity (you need the
+Groups Admin role in Workspace, or ask the admin to run this):
+
+```bash
+gcloud services enable cloudresourcemanager.googleapis.com cloudidentity.googleapis.com --project <PROJECT_ID>
+
+gcloud identity groups create ge-workshop@<DOMAIN> \
+  --organization=<DOMAIN> --display-name="Gemini Enterprise Workshop" \
+  --labels=cloudidentity.googleapis.com/groups.discussion_forum
+
+# The creator is automatically OWNER + MEMBER. Add participants one by one
+# (only ONE --roles value per call):
+gcloud identity groups memberships add --group-email=ge-workshop@<DOMAIN> \
+  --member-email=jane@<DOMAIN> --roles=MEMBER
+
+gcloud identity groups memberships list --group-email=ge-workshop@<DOMAIN>
+```
+
+Put `group:ge-workshop@<DOMAIN>` in `participants` in `terraform.tfvars`.
 
 ## 2. Provision (day before)
 
 ```bash
-git clone <this-repo> && cd telix-gemini-enterprise-workshop
+git clone https://github.com/soheilage/Telix.git && cd Telix
 
 gcloud auth login
 gcloud auth application-default login
@@ -35,7 +57,7 @@ list to the admin. After it has passed once you can skip it:
 
 What `apply` creates (see [terraform/main.tf](terraform/main.tf)):
 
-1. Enables `discoveryengine`, `storage`, `drive`, `calendar-json` APIs (no-op if already on).
+1. Enables `cloudresourcemanager`, `serviceusage`, `iam`, `cloudidentity`, `discoveryengine`, `storage`, `drive`, `calendar-json` APIs (no-op if already on).
 2. Bucket `<PROJECT_ID>` with `gemini-enterprise-drive/`, `notebooklm-drive/`,
    `gemini-enterprise-cloud-storage/` populated from [`data/`](data).
 3. Data store `cloud-storage-ds` + a document import from `gemini-enterprise-cloud-storage/`.
@@ -45,6 +67,26 @@ What `apply` creates (see [terraform/main.tf](terraform/main.tf)):
    project, `objectViewer` on the bucket.
 
 Indexing of the Cloud Storage data store takes 5–10 minutes.
+
+> [!TIP]
+> On a brand-new project the google provider itself needs the Cloud Resource Manager
+> API. If `terraform plan` fails with `SERVICE_DISABLED`, run
+> `gcloud services enable cloudresourcemanager.googleapis.com --project <PROJECT_ID>` once.
+
+### 2.1 Deploying to `eu` (or `us`) instead of `global`
+
+Set **both** `location = "eu"` and `bucket_location = "EU"` in `terraform.tfvars`.
+Everything (app, data stores, Drive/Calendar connectors, Gemini Notebook) must stay in
+the same multi-region. Be aware of:
+
+- **Console location selector** – the Gemini Enterprise console opens on *global* and
+  will show *There are no apps yet*. Click **Edit** next to *Current location* and pick
+  `eu`. `terraform output app_console_url` already includes the right location.
+- **Feature lag** – Deep Research and newer models/Studio formats reach `global` first.
+  Check the app menu during your dry run; drop Module 4 if Deep Research is absent.
+- **Licences** – Gemini Notebook licences are purchased per multi-region.
+- **Org policy** – if `gcp.resourceLocations` is enforced it must allow the `eu`
+  multi-region value, not only `europe-west*` regions.
 
 > [!NOTE]
 > Terraform cannot (yet) set Workspace identity or upload the app logo. Identity is the
@@ -73,24 +115,20 @@ participants to skip to section 2.4.
 
 ## 5. Fill in the placeholders
 
-Run `terraform output` and replace these tokens across `docs/` (`sed -i` or your editor):
+Two values are not known to Terraform: the web-app URL and the calendar link.
 
-| Placeholder | Source |
-|-------------|--------|
-| `<PROJECT_ID>` | your tfvars |
-| `<BUCKET_NAME>`, `<BUCKET_CONSOLE_URL>` | `terraform output bucket_name` / `bucket_console_url` |
-| `<APP_CONSOLE_URL>`, `<DATA_STORES_CONSOLE_URL>` | `terraform output` |
-| `<GEMINI_ENTERPRISE_APP_URL>` | Open `app_console_url` → **Overview** → copy the link under *Your Gemini Enterprise webapp is ready* |
-| `<CALENDAR_TEMPLATE_LINK>` | `scripts/calendar-link.sh` |
+1. Open `terraform output app_console_url` → **Overview** → copy the link under
+   *Your Gemini Enterprise webapp is ready*.
+2. Run, from the repo root:
 
-Example:
+   ```bash
+   ./scripts/fill-placeholders.sh "https://vertexaisearch.cloud.google.com/home/cid/..."
+   ```
 
-```bash
-cd terraform
-PROJECT_ID=$(grep -E '^project_id' terraform.tfvars | cut -d'"' -f2)
-BUCKET=$(terraform output -raw bucket_name)
-sed -i "s|<PROJECT_ID>|${PROJECT_ID}|g; s|<BUCKET_NAME>|${BUCKET}|g" ../docs/*.md
-```
+   It replaces `<PROJECT_ID>`, `<LOCATION>`, `<BUCKET_NAME>`, `<BUCKET_CONSOLE_URL>`,
+   `<APP_CONSOLE_URL>`, `<DATA_STORES_CONSOLE_URL>`, `<GEMINI_ENTERPRISE_APP_URL>` and
+   `<CALENDAR_TEMPLATE_LINK>` (generated via `scripts/calendar-link.sh` unless passed as
+   the second argument) across `docs/`, and warns about anything left unresolved.
 
 Then do a **full dry run** with a non-admin test user from the participant group.
 
@@ -127,5 +165,4 @@ Delete the shared Drive folder manually. The APIs stay enabled (`disable_on_dest
 ## 8. Updating the content
 
 - Sample data lives in `data/`; Terraform re-uploads on change and re-triggers the import.
-- Screenshots go in `assets/` with the file names referenced in the docs.
 - Keep each module to: goal → concepts → numbered steps → checkpoint.

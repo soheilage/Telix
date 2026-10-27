@@ -2,9 +2,16 @@
 project_id = "telix-ge-workshop"
 
 # Google Group (preferred) or individual users who will attend.
+# Create the group first — see FACILITATOR.md §1b.
 participants = [
   "group:ge-workshop@telix.com",
 ]
+
+# Location. Keep `global` unless you have data-residency requirements.
+# For EU-only deployments use the `eu` multi-region for BOTH values and read
+# FACILITATOR.md §2.1 ("Deploying to eu") first.
+# location        = "eu"
+# bucket_location = "EU"
 
 # Optional overrides
 # bucket_name      = "telix-ge-workshop-data"

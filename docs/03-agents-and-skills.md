@@ -27,8 +27,6 @@ Concepts in one line each:
    Impressions 164,500, Clicks 11,100, Conversions 625, CTR 6.75 %, Conversion Rate 5.63 %,
    Cost per Conversion \$3.39) with an **Export to Sheets** button.
 
-   ![Marketing data update](../assets/chat-marketing-update.png)
-
    > If you get no response, refresh and resubmit — the Drive connector may still be indexing.
 
 3. Follow up in the same chat:
@@ -49,8 +47,6 @@ Concepts in one line each:
 
    The answer compares *perceived* vs *actual* sentiment (e.g. Positive 52.2 % vs 42.1 %,
    Negative 13.0 % vs 31.6 %) and links to `pie_chart_customer_sentiment-png.png`.
-
-   ![Pie chart summary](../assets/chat-pie-chart.png)
 
    > Re-run the query if it doesn't find the image on the first try.
 
@@ -78,15 +74,11 @@ Concepts in one line each:
 4. When *Your agent 'Sales Assistant' is ready* appears, review the preview panel with
    its **Flow**, **Schedule** and **Preview** tabs.
 
-   ![Agent Designer](../assets/agent-designer.png)
-
 5. Select the **Flow** tab and click the **Sales Assistant** node to open **Details**.
    Inspect (and feel free to tweak) **Name** (add your initials), **Description**,
    **Instructions** (the generated *Role* section tells it to use Google Drive / Cloud
    Storage), **Model** (e.g. Gemini 3.5 Flash) and **Connectors** (Cloud Storage, Drive,
    Google Search).
-
-   ![Agent details](../assets/agent-details.png)
 
 6. Click **Create** in the toolbar to publish. In **Agent Created Successfully** click
    **Chat with Agent**.

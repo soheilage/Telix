@@ -24,8 +24,7 @@ RESPONSE=$(curl -sS -X POST \
   "https://${HOST}/v1/${PARENT}/documents:import" \
   -d "{
         \"gcsSource\": { \"inputUris\": [\"${GCS_URI}\"], \"dataSchema\": \"content\" },
-        \"reconciliationMode\": \"INCREMENTAL\",
-        \"autoGenerateIds\": true
+        \"reconciliationMode\": \"INCREMENTAL\"
       }")
 
 if grep -q '"error"' <<<"${RESPONSE}"; then

@@ -37,8 +37,6 @@ Google Calendar — so you know what to expect when you query it later.
    - `customer_feedback.csv`
    - `pie_chart_customer_sentiment-png.png`
 
-   ![Drive assets folder](../assets/drive-assets.png)
-
    > [!NOTE]
    > In a real deployment each employee's own Drive content is searchable, subject to
    > their existing Drive permissions. For the workshop a single shared folder is used so
