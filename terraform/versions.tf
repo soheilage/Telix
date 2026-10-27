@@ -6,9 +6,6 @@ terraform {
       source  = "hashicorp/google"
       version = ">= 7.7.0"
     }
-    terraform = {
-      source = "terraform.io/builtin/terraform"
-    }
   }
 }
 

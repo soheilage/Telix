@@ -86,7 +86,10 @@ Run `terraform output` and replace these tokens across `docs/` (`sed -i` or your
 Example:
 
 ```bash
-cd docs && sed -i "s|<PROJECT_ID>|$(terraform -chdir=../terraform output -raw bucket_name)|g" *.md
+cd terraform
+PROJECT_ID=$(grep -E '^project_id' terraform.tfvars | cut -d'"' -f2)
+BUCKET=$(terraform output -raw bucket_name)
+sed -i "s|<PROJECT_ID>|${PROJECT_ID}|g; s|<BUCKET_NAME>|${BUCKET}|g" ../docs/*.md
 ```
 
 Then do a **full dry run** with a non-admin test user from the participant group.
