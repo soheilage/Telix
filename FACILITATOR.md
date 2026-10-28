@@ -36,15 +36,28 @@ list to the admin. After it has passed once you can skip it:
 What `apply` creates (see [terraform/main.tf](terraform/main.tf)):
 
 1. Enables `discoveryengine`, `storage`, `drive`, `calendar-json` APIs (no-op if already on).
-2. Bucket `<PROJECT_ID>` with `gemini-enterprise-drive/`, `notebooklm-drive/`,
-   `gemini-enterprise-cloud-storage/` populated from [`data/`](data).
+2. Bucket `<PROJECT_ID>` in the **EU** multi-region with `gemini-enterprise-drive/`,
+   `notebooklm-drive/`, `gemini-enterprise-cloud-storage/` populated from [`data/`](data).
 3. Data store `cloud-storage-ds` + a document import from `gemini-enterprise-cloud-storage/`.
-4. Gemini Enterprise app `telix-gemini-enterprise` (global, `APP_TYPE_INTRANET`,
+4. Gemini Enterprise app `telix-gemini-enterprise` (location `eu`, `APP_TYPE_INTRANET`,
    Enterprise tier + LLM add-on, agent sharing enabled, company name *Telix Pharmaceuticals*).
 5. IAM for `participants`: `roles/discoveryengine.editor` + `roles/viewer` on the
    project, `objectViewer` on the bucket.
 
 Indexing of the Cloud Storage data store takes 5–10 minutes.
+
+> [!IMPORTANT]
+> **EU region.** Telix's Gemini Enterprise is provisioned in the **`eu` multi-region**
+> (`location = "eu"`, bucket in `EU`). Everything created later must match:
+> - Drive and Calendar connectors (Module 2) must be created with multi-region **eu**;
+>   a `global`/`us` connector cannot be attached to an `eu` app.
+> - The console URLs from `terraform output` and the document-import script already use
+>   the regional endpoint (`eu-discoveryengine.googleapis.com`).
+> - Some Gemini Enterprise capabilities roll out to `eu` after `global`/`us`. During the
+>   dry run confirm that Agent Designer, Skills, Deep Research and Gemini Notebook are all
+>   available in the EU app, and check Workspace admin settings allow EU data-region
+>   processing for Gemini. If a feature is missing, drop that section from the run of show
+>   rather than switching regions.
 
 > [!NOTE]
 > Terraform cannot (yet) set Workspace identity or upload the app logo. Identity is the
@@ -113,6 +126,7 @@ Then do a **full dry run** with a non-admin test user from the participant group
 ### Common pitfalls
 
 - Participants signed in with a personal Gmail → 403. Ask them to use a dedicated Chrome profile.
+- Connector created in the wrong multi-region (`global` instead of `eu`) → it won't appear under the app; delete and recreate it in `eu`.
 - Drive/Calendar connector indexing lag → start Module 2 early; have Cloud Storage-only prompts ready.
 - Many people creating "Medical Affairs Assistant" in the shared app → initials in names.
 - Deep Research quota at scale → fine for ~20 users; for larger groups stagger starts.

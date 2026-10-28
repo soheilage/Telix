@@ -14,7 +14,7 @@ terraform destroy        # teardown after the workshop
 | File | Purpose |
 |------|---------|
 | `versions.tf` | Provider pins (`hashicorp/google >= 7.7`, needed for `app_type = APP_TYPE_INTRANET`) |
-| `variables.tf` | Inputs; only `project_id` and `participants` are required in practice |
+| `variables.tf` | Inputs; only `project_id` and `participants` are required in practice. `location` defaults to `eu` and `bucket_location` to `EU` (Telix data residency) |
 | `main.tf` | Preflight → APIs → bucket + data → data store + import → app → IAM |
 | `outputs.tf` | Console URLs and bucket name |
 

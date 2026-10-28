@@ -8,9 +8,9 @@ the application and confirm you can see it.
 | Item | Value |
 |------|-------|
 | GCP project | `<PROJECT_ID>` |
-| Gemini Enterprise app | **Telix - Gemini Enterprise** (`telix-gemini-enterprise`, location `global`) |
+| Gemini Enterprise app | **Telix - Gemini Enterprise** (`telix-gemini-enterprise`, location **`eu`** — EU multi-region) |
 | Pre-connected data store | **Cloud Storage** (`cloud-storage-ds`) — clinical trial site, medical-information enquiry and investigator feedback text files, already indexed |
-| Cloud Storage bucket | `<BUCKET_NAME>` with three folders of sample data |
+| Cloud Storage bucket | `<BUCKET_NAME>` (EU multi-region) with three folders of sample data |
 | Shared Drive folder | **Telix Gemini Enterprise Drive Assets** (shared with you) |
 
 > [!NOTE]

@@ -52,7 +52,7 @@ enquiry trends and site concerns, and to draft scientifically-toned communicatio
 
 ```mermaid
 flowchart LR
-  subgraph GCP["Shared GCP project (provisioned by Terraform)"]
+  subgraph GCP["Shared GCP project — EU multi-region (provisioned by Terraform)"]
     B[("Cloud Storage bucket<br/>3 sample folders")]
     DS["Data store<br/>cloud-storage-ds"]
     APP["Gemini Enterprise app<br/>telix-gemini-enterprise"]
@@ -71,6 +71,7 @@ flowchart LR
 
 - A Telix Google Workspace account with a **Gemini Enterprise licence**
   (your admin has assigned it).
+- The app and all data live in the **EU multi-region** (`eu`); see FACILITATOR.md.
 - Membership of the workshop access group (your admin/facilitator added you).
 - Chrome, signed in with that account (no Incognito needed).
 

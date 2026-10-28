@@ -15,7 +15,7 @@ gets its Drive and Calendar connectors.
 
 1. Open **<DATA_STORES_CONSOLE_URL>** (Cloud console → search bar → **Gemini Enterprise**
    → **Apps** → **Telix - Gemini Enterprise** → **Connected data stores**).
-2. Verify the app is listed in location **global** and that the **Cloud Storage** data
+2. Verify the app is listed in location **eu** (EU multi-region) and that the **Cloud Storage** data
    store (`cloud-storage-ds`) is already connected, importing unstructured documents from
    the `gemini-enterprise-cloud-storage/` folder of `<BUCKET_NAME>`.
 
@@ -36,7 +36,7 @@ gets its Drive and Calendar connectors.
 
    | Setting | Value |
    |---------|-------|
-   | Multi-region (Location of your data connector) | **global** (pre-selected to match the app) |
+   | Multi-region (Location of your data connector) | **eu** (must match the app — do **not** choose `global` or `us`, the connector cannot be attached otherwise) |
    | Data connector name | `Google Drive` |
 
 6. Click **Create**.
@@ -47,7 +47,7 @@ gets its Drive and Calendar connectors.
 2. Search `Google Calendar` → **Add data source**.
 3. Authentication parameters page → **Continue**.
 4. **Select all actions** → **Continue**.
-5. Multi-region **global**, data connector name `Google Calendar` → **Create**.
+5. Multi-region **eu**, data connector name `Google Calendar` → **Create**.
 6. Confirm the panel now lists three data stores:
 
    | Name | Type | Status |

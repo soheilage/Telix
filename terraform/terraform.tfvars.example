@@ -6,6 +6,11 @@ participants = [
   "group:ge-workshop@telix.com",
 ]
 
+# Region. The Telix workshop is EU-resident: Gemini Enterprise in the `eu` multi-region
+# and the bucket in `EU`. These are already the defaults; shown here for clarity.
+location        = "eu"
+bucket_location = "EU"
+
 # Optional overrides
 # bucket_name      = "telix-ge-workshop-data"
 # participant_role = "roles/discoveryengine.user"   # if facilitator pre-connects Drive/Calendar

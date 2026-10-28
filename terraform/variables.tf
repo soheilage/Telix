@@ -4,9 +4,18 @@ variable "project_id" {
 }
 
 variable "location" {
-  description = "Gemini Enterprise multi-region. Keep `global` to match the lab."
+  description = <<-EOT
+    Gemini Enterprise (Discovery Engine) multi-region. The Telix workshop runs in the
+    EU multi-region (`eu`) for data residency; the app, the Cloud Storage data store and
+    the Drive/Calendar connectors added in Module 2 must all use the same location.
+  EOT
   type        = string
-  default     = "global"
+  default     = "eu"
+
+  validation {
+    condition     = contains(["eu", "us", "global"], var.location)
+    error_message = "location must be one of: eu, us, global."
+  }
 }
 
 variable "bucket_name" {
@@ -16,9 +25,9 @@ variable "bucket_name" {
 }
 
 variable "bucket_location" {
-  description = "Location of the sample-data bucket."
+  description = "Location of the sample-data bucket. Kept in the EU multi-region to match `location`."
   type        = string
-  default     = "US"
+  default     = "EU"
 }
 
 variable "app_id" {
