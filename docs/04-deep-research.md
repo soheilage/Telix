@@ -6,33 +6,37 @@ overview — in minutes. Kick it off now and come back after Module 5.
 
 ## Steps
 
-1. Click the **Cymbal Foods** logo to return to the home page.
+1. Click the **Telix** logo to return to the home page.
 2. In the navigation menu select **Deep Research**.
 3. Enter:
 
    ```text
-   Research the latest marketing tips and tricks that food companies are using, and generate a list of actionable steps our company can take to improve our current marketing strategy.
+   Research recent trends and best practices in patient recruitment and site engagement for radiopharmaceutical and theranostic clinical trials, and generate a list of actionable steps our clinical operations team can take to improve enrolment.
    ```
 
 4. The agent shows a **research plan**. Read it (you can edit it), then click
    **Start research**.
 
    > [!NOTE]
-   > Cymbal Foods is fictitious, so the "current strategy" is illustrative. The point is
-   > to see how Deep Research plans, browses, synthesises and cites.
+   > The studies in this workshop are fictitious, so "our enrolment" is illustrative. The
+   > point is to see how Deep Research plans, browses, synthesises and cites. Treat the
+   > output as a starting point for discussion, not as validated guidance.
 
 5. Continue with [Module 5](05-gemini-notebook.md). After **5–10 minutes** return here:
-   the report shows an **Executive Summary** (key trends such as health & wellness,
-   sustainability, personalisation, authentic UGC, direct-to-consumer), a phased
-   recommendation, inline citations, and a **Research audio summary** player.
+   the report shows an **Executive Summary** (key themes such as referral-network and
+   nuclear-medicine capacity constraints, site feasibility and activation timelines,
+   patient-facing education, decentralised and imaging-core-lab support, isotope supply
+   logistics), a phased recommendation, inline citations, and a **Research audio summary**
+   player.
 
    ![Deep Research report](../assets/deep-research.png)
 
 ## Things to try when it's done
 
 - Expand a citation chip to see the source.
-- Ask a follow-up in the same thread, e.g. *"Which of these steps could Cymbal Foods
-  apply to the SPRING25 campaign?"* — it blends web research with your connected data.
+- Ask a follow-up in the same thread, e.g. *"Which of these steps would help our
+  under-recruiting TLX-PRO-01 sites such as Reading and Toronto?"* — it blends web research
+  with your connected data.
 - Play the audio summary; export the report to Google Docs.
 
 ## ✅ Checkpoint

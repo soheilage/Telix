@@ -8,18 +8,23 @@ the application and confirm you can see it.
 | Item | Value |
 |------|-------|
 | GCP project | `<PROJECT_ID>` |
-| Gemini Enterprise app | **Cymbal Foods - Gemini Enterprise** (`cymbal-foods-gemini-enterprise`, location `global`) |
-| Pre-connected data store | **Cloud Storage** (`cloud-storage-ds`) — enterprise operations text files, already indexed |
+| Gemini Enterprise app | **Telix - Gemini Enterprise** (`telix-gemini-enterprise`, location `global`) |
+| Pre-connected data store | **Cloud Storage** (`cloud-storage-ds`) — clinical trial site, medical-information enquiry and investigator feedback text files, already indexed |
 | Cloud Storage bucket | `<BUCKET_NAME>` with three folders of sample data |
-| Shared Drive folder | **Gemini Enterprise Drive Assets** (shared with you) |
+| Shared Drive folder | **Telix Gemini Enterprise Drive Assets** (shared with you) |
 
 > [!NOTE]
 > Placeholders in `<ANGLE_BRACKETS>` are filled in by your facilitator before the
 > workshop. If you still see them, ask.
 
+> [!IMPORTANT]
+> The scenario uses **synthetic data**: studies `TLX-PRO-01`, `TLX-REN-02` and `TLX-GLI-03`,
+> their sites, investigators, enquiries and figures are fictional. Nothing in this
+> workshop describes a real Telix programme, product, patient or trial result.
+
 ## Steps
 
-1. In Chrome, make sure you are signed in with your **company Workspace account**
+1. In Chrome, make sure you are signed in with your **Telix Workspace account**
    (the one your admin assigned a Gemini Enterprise licence to). Check the profile
    icon in the top-right of any Google page.
 
@@ -41,7 +46,7 @@ the application and confirm you can see it.
 
 ## ✅ Checkpoint
 
-- [ ] The Gemini Enterprise home page loads and shows **Cymbal Foods** branding.
+- [ ] The Gemini Enterprise home page loads and shows **Telix** branding.
 - [ ] Clicking **Agents** in the navigation menu opens the agent gallery.
 
 If the page says you don't have access, see [troubleshooting](troubleshooting.md#no-access).

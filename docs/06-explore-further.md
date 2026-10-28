@@ -15,9 +15,9 @@ to go deeper — pick whatever is most relevant to your own work.
 
 | Feature | Try this |
 |---------|----------|
-| **Cross-source reasoning** | *"Are there any marketing campaigns for products that have recent customer feedback entries in Drive, and do any of these align with upcoming calendar events?"* |
+| **Cross-source reasoning** | *"Which clinical trial sites have both open medical information enquiries and negative investigator feedback in Drive, and should any of them be discussed at my upcoming Clinical Operations Review?"* |
 | **Projects** | **Projects** in the navigation menu → create a workspace grounded in specific Drive files, uploads and custom instructions for a team. |
-| **Canvas** | Ask for a marketing proposal, then refine it in the side-by-side **Canvas** editor. |
+| **Canvas** | Ask for a site-engagement action plan for the under-recruiting sites, then refine it in the side-by-side **Canvas** editor. |
 | **Export** | Use the export controls on answers/tables → **Google Docs** / **Google Sheets**. |
 | **Agent Designer** | **+ New agent** again: change system instructions, attach specific connectors, or ask the copilot for multi-step **workflow** logic with a **Schedule** trigger. |
 | **Sharing** | Open the share menu on a chat or on your agent to see how teams distribute AI workflows. |

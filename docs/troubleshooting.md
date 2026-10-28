@@ -16,4 +16,4 @@
 | Studio artefacts missing | Still generating | They build in the background; check again after a few minutes. |
 
 Still stuck? Ask your facilitator — they can check the app in the Cloud console
-(**Gemini Enterprise → Apps → Cymbal Foods → Connected data stores / Activity**).
+(**Gemini Enterprise → Apps → Telix - Gemini Enterprise → Connected data stores / Activity**).

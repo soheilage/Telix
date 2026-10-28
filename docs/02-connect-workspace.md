@@ -14,7 +14,7 @@ gets its Drive and Calendar connectors.
 ## 2.1 Verify the pre-provisioned app (everyone)
 
 1. Open **<DATA_STORES_CONSOLE_URL>** (Cloud console → search bar → **Gemini Enterprise**
-   → **Apps** → **Cymbal Foods - Gemini Enterprise** → **Connected data stores**).
+   → **Apps** → **Telix - Gemini Enterprise** → **Connected data stores**).
 2. Verify the app is listed in location **global** and that the **Cloud Storage** data
    store (`cloud-storage-ds`) is already connected, importing unstructured documents from
    the `gemini-enterprise-cloud-storage/` folder of `<BUCKET_NAME>`.
@@ -59,7 +59,7 @@ gets its Drive and Calendar connectors.
    ![Connected data stores](../assets/connected-data-stores.png)
 
 Behind the scenes Gemini Enterprise links all three stores to the
-`cymbal-foods-gemini-enterprise` engine and enforces **per-user ACLs** through Google
+`telix-gemini-enterprise` engine and enforces **per-user ACLs** through Google
 Identity — which is why each of you now authorises your own account.
 
 ## 2.4 Authorise your own Drive and Calendar (everyone)

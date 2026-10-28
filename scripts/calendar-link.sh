@@ -6,8 +6,8 @@
 #        ./scripts/calendar-link.sh 20261105T100000Z 20261105T103000Z
 set -euo pipefail
 
-TITLE="Cymbal Foods - Marketing Strategy Meeting"
-DETAILS="Review Q1 2026 marketing campaign performance (SPRING25, EMAIL0325, GOOGLEADS01) and agree on next quarter's plan. Prep: latest marketing data and customer feedback."
+TITLE="Telix - Clinical Operations Review"
+DETAILS="Review Q1 2026 site enrolment for studies TLX-PRO-01, TLX-REN-02 and TLX-GLI-03, medical-information enquiry trends and investigator feedback. Prep: latest clinical trial site data and medical info enquiries. (Fictional workshop scenario.)"
 
 if [[ $# -eq 2 ]]; then
   START=$1; END=$2

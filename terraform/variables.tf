@@ -24,19 +24,19 @@ variable "bucket_location" {
 variable "app_id" {
   description = "Engine (app) ID of the Gemini Enterprise application."
   type        = string
-  default     = "cymbal-foods-gemini-enterprise"
+  default     = "telix-gemini-enterprise"
 }
 
 variable "app_display_name" {
   description = "Display name shown in the Gemini Enterprise console and web app."
   type        = string
-  default     = "Cymbal Foods - Gemini Enterprise"
+  default     = "Telix - Gemini Enterprise"
 }
 
 variable "company_name" {
   description = "Company name used for branding / LLM grounding."
   type        = string
-  default     = "Cymbal Foods"
+  default     = "Telix Pharmaceuticals"
 }
 
 variable "data_store_id" {

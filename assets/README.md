@@ -2,11 +2,11 @@
 
 | File | Shown in |
 |------|----------|
-| ge-home.png | 00 – Gemini Enterprise home page |
+| ge-home.png | 00 – Gemini Enterprise home page (Telix branding) |
 | drive-assets.png | 01 – Drive folder with four files |
 | connected-data-stores.png | 02 – three data stores |
-| chat-marketing-update.png | 03 – marketing performance table |
-| chat-pie-chart.png | 03 – sentiment comparison |
+| chat-enrolment-update.png | 03 – site enrolment performance table |
+| chat-pie-chart.png | 03 – enquiry-category perceived vs actual comparison |
 | agent-designer.png | 03 – agent preview panel |
 | agent-details.png | 03 – Flow tab, Details panel |
 | deep-research.png | 04 – finished report |

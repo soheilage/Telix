@@ -2,11 +2,12 @@ locals {
   bucket_name = coalesce(var.bucket_name, var.project_id)
   data_dir    = "${path.module}/../data"
 
-  # Mirrors the three folders the Qwiklabs startup script creates.
+  # Mirrors the three folders the Qwiklabs startup script creates, populated with
+  # synthetic Telix clinical / medical-affairs sample data (see data/README.md).
   folders = {
-    "gemini-enterprise-drive"         = ["MARKETING_data.csv", "SALES_data.csv", "customer_feedback.csv", "pie_chart_customer_sentiment-png.png"]
-    "notebooklm-drive"                = ["MARKETING_data.txt", "SALES_data.txt", "customer_feedback.txt"]
-    "gemini-enterprise-cloud-storage" = ["MARKETING_data.txt", "SALES_data.txt", "customer_feedback.txt"]
+    "gemini-enterprise-drive"         = ["CLINICAL_TRIAL_SITES.csv", "MEDICAL_INFO_ENQUIRIES.csv", "investigator_feedback.csv", "pie_chart_enquiry_categories.png"]
+    "notebooklm-drive"                = ["CLINICAL_TRIAL_SITES.txt", "MEDICAL_INFO_ENQUIRIES.txt", "investigator_feedback.txt"]
+    "gemini-enterprise-cloud-storage" = ["CLINICAL_TRIAL_SITES.txt", "MEDICAL_INFO_ENQUIRIES.txt", "investigator_feedback.txt"]
   }
 
   objects = merge([
@@ -110,7 +111,7 @@ resource "google_discovery_engine_data_store" "cloud_storage" {
   depends_on = [google_project_service.apis]
 }
 
-# Import the enterprise-operations text files. The provider has no import
+# Import the clinical / medical-affairs text files. The provider has no import
 # resource yet, so call the Discovery Engine API once.
 resource "terraform_data" "import_documents" {
   triggers_replace = [
